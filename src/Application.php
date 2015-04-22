@@ -33,15 +33,22 @@ class Application extends \samsoncms\Application
     }
 
     /** Universal controller action */
-    public function __handler()
+    public function __handler($category = null, $subCategory = null, $subSubCategory = null)
     {
-        // Render menu
-        \samsonphp\event\Event::subscribe('template.menu.rendered', array($this, 'subMenuHandler'));
+        // Render menu and current controller parameters
+        \samsonphp\event\Event::subscribe(
+            'template.menu.rendered',
+            array($this, 'subMenuHandler'),
+            array($category, $subCategory, $subSubCategory)
+        );
 
         $html = '';
 
         // Fire event when application help is rendered
-        \samsonphp\event\Event::fire('help.content.rendered', array(&$html, $this));
+        \samsonphp\event\Event::fire(
+            'help.content.rendered',
+            array(&$html, $category, $subCategory, $subSubCategory, $this)
+        );
 
         // Prepare view
         $this->view('index')
