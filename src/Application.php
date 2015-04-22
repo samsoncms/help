@@ -24,12 +24,15 @@ class Application extends \samsoncms\Application
      * @param string $html Main menu HTML
      * @param string $subMenu Sub menu HTML
      */
-    public function subMenuHandler(&$html, &$subMenu)
+    public function subMenuHandler(&$html, &$subMenu, $category, $subCategory, $subSubCategory)
     {
         $subMenu = '<li><a href="#top">'.t('В начало', true).'</a></li>';
 
         // Fire event when application help is rendered
-        \samsonphp\event\Event::fire('help.submenu.rendered', array(&$subMenu, $this));
+        \samsonphp\event\Event::fire(
+            'help.submenu.rendered',
+            array(&$subMenu, $this, $category, $subCategory, $subSubCategory)
+        );
     }
 
     /** Universal controller action */
