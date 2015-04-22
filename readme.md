@@ -7,7 +7,6 @@
 [![Total Downloads](https://poser.pugx.org/samsoncms/help/downloads.svg)](https://packagist.org/packages/samsoncms/help)
 [![Stories in Ready](https://badge.waffle.io/samsoncms/help.png?label=ready&title=Ready)](https://waffle.io/samsoncms/help)
 
-
 This application shows basic system help and gives ability
 to create documentation for other applications and services.
 

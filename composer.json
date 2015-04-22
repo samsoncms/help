@@ -11,7 +11,7 @@
   "autoload": {
     "classmap": ["src/"],
     "psr-4": {
-      "samsoncms\\app\\help": "src/"
+      "samsoncms\\app\\help\\": "src/"
     }
   }
 }
